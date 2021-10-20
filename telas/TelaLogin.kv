@@ -1,0 +1,43 @@
+#:include telas/widgets_config.kv
+
+################################################################################
+# Tela de Login
+################################################################################
+<TelaLogin>:
+    lb_msg: lb_msg
+    txt_login: txt_login
+
+    ScrollView:
+
+        BoxLayout:
+
+            Label:
+                text: '[b]Olá,seja bem vindo(a)![/b]\n'
+                font_size: '32sp'
+
+            Label:
+                text: 'Login'
+                
+
+            TextInput:
+                id: txt_login
+
+            Label:
+                text: 'Senha'
+
+            TextInput:
+                id: txt_senha
+                password: True
+
+            Label:
+                id: lb_msg
+                
+            Button:
+                text: 'Entrar'
+                on_press: root.entrar(txt_login.text, txt_senha.text)
+
+            Button:
+                text: 'Cadastrar'
+                on_press:
+                    root.manager.transition.direction = 'left'
+                    root.manager.current = 'cadastro'

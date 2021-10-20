@@ -1,0 +1,37 @@
+#:include telas/widgets_config.kv
+
+################################################################################
+# Tela para escola de foto
+################################################################################
+
+<TelaAbreFoto>:
+    lb_msg: lb_msg
+    escolha_arquivo: escolha_arquivo
+
+    BoxLayout:
+        size_hint_y: 1
+
+        FileChooserIconView:
+            id: escolha_arquivo
+            size_hint_y: 9
+        
+        Label:
+            id: lb_msg
+            size_hint_y: 0.5
+
+        GridLayout:
+            size_hint_y: 1
+            cols: 2
+            padding: 0
+
+            Button:
+                size_hint_y: 1
+                text: 'OK'
+                on_press: root.carregar_foto(escolha_arquivo.path, escolha_arquivo.selection)
+
+            Button:
+                size_hint_y: 1
+                text: 'Cancelar'
+                on_press:
+                    root.manager.transition.direction = 'right'
+                    root.manager.current = 'perfil'

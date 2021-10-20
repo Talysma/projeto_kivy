@@ -1,0 +1,52 @@
+#:include telas/widgets_config.kv
+
+################################################################################
+# Tela de Perfil
+################################################################################
+<TelaPerfil>:
+    lb_login: lb_login
+    lb_nome: lb_nome
+    btn_foto: btn_foto
+    img_perfil: img_perfil
+
+    ScrollView:
+        
+        BoxLayout:
+
+            GridLayout:
+                cols: 2
+                padding: 0
+
+                AsyncImage:
+                    id: img_perfil
+                
+                Label:
+                    id: lb_login
+                    font_size: '25sp'
+
+            Label:
+                id: lb_nome
+
+            GridLayout:
+                cols: 2
+                padding: 0
+                
+
+                Button:
+                    text: 'Editar perfil'
+                    on_press:
+                        root.manager.transition.direction = 'left'
+                        root.manager.current = 'editarperfil'
+                        root.manager.current_screen.txt_nome.text = lb_nome.text
+                
+                Button:
+                    id: btn_foto
+                    text: 'Alterar foto'
+                    on_press:
+                        root.manager.transition.direction = 'left'
+                        root.manager.current = 'abrefoto'
+                        root.manager.current_screen.carregar_pasta()
+
+            Button:
+                text: 'Sair'
+                on_press: root.sair()

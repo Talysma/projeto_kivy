@@ -1,0 +1,52 @@
+#:include telas/widgets_config.kv
+
+################################################################################
+# Tela de Editar Perfil
+################################################################################
+<TelaEditarPerfil>:
+    lb_msg: lb_msg
+    txt_nome: txt_nome
+
+    ScrollView:
+        
+        BoxLayout:
+
+            Label:
+                text: '[b]Editar perfil[/b]'
+                font_size: '32sp'
+            
+            Label:
+                text:'Use este formulário para alterar seu perfil. Caso não queira alterar a senha, deixe os campos em branco.\n'
+
+            Label:
+                text: 'Nome:'
+
+            TextInput:
+                id: txt_nome
+
+            Label:
+                text: 'Senha:'
+
+            TextInput:
+                id: txt_senha1
+                password: True
+
+            Label:
+                text: 'Repita a senha:'
+
+            TextInput:
+                id: txt_senha2
+                password: True
+
+            Label:
+                id: lb_msg
+            
+            Button:
+                text: 'Alterar'
+                on_press: root.enviar(txt_senha1.text, txt_senha2.text, txt_nome.text)
+            
+            Button:
+                text: 'Cancelar'
+                on_press:
+                    root.manager.transition.direction = 'right'
+                    root.manager.current = 'perfil'

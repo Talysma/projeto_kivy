@@ -1,0 +1,54 @@
+#:include telas/widgets_config.kv
+
+################################################################################
+# Tela de Cadastro
+################################################################################
+<TelaCadastro>:
+    lb_msg: lb_msg
+
+    ScrollView:
+        
+        BoxLayout:
+
+            Label:
+                text: '[b]Cadastro[/b]\n'
+                font_size: '32sp'
+                
+            Label:
+                text: 'Nome'
+
+            TextInput:
+                id: txt_nome
+
+            Label:
+                text: 'Login'
+
+            TextInput:
+                id: txt_login
+                
+
+            Label:
+                text: 'Senha '
+
+            TextInput:
+                id: txt_senha1
+                password: True
+
+            Label:
+                text: 'Confirme a senha'
+
+            TextInput:
+                id: txt_senha2
+                password: True
+            Label:
+                id: lb_msg
+                
+            Button:
+                text: 'Cadastrar'
+                on_press: root.enviar(txt_nome.text, txt_login.text, txt_senha1.text, txt_senha2.text)
+                
+            Button:
+                text: 'Voltar ao login'
+                on_press:
+                    root.manager.transition.direction = 'right'
+                    root.manager.current = 'login'

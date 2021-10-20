@@ -1,0 +1,76 @@
+################################################################################
+# Configurações padrões dos widgets
+################################################################################
+<ScrollView>
+    # Rolagem apenas na vertical
+    do_scroll_x: False
+    do_scroll_y: True
+    # Plano de fundo
+    canvas.before:
+        BorderImage:
+            source: "fundo.png" 
+            pos: self.pos
+            size: self.size
+
+        
+
+<BoxLayout>
+    # Altura variável
+    size_hint_y: None
+    height: self.minimum_height
+    # Orientação vertical
+    orientation: 'vertical'
+    # Espaçamentos
+    padding: 20
+    spacing: 20
+    # Plano de fundo
+    
+<GridLayout>
+    # Altura variável
+    size_hint_y: None
+    height: self.minimum_height
+    # Espaçamentos
+    padding: 20
+    spacing: 20
+
+<Label>
+    # Fonte
+    font_name: 'Roboto-BoldItalic'
+    font_size: '18sp'
+    # Altura do Label igual à altura do texto
+    size_hint_y: None
+    height: self.texture_size[1]
+    # Alinha à esquerda
+    text_size: root.width, None
+    halign: 'left'
+    # Aceita marcação
+    markup: True
+
+<Button>
+    # Altura do Button igual à altura do texto + 20 (10 de espaço em cima e embaixo)
+    size_hint_y: None
+    height: self.texture_size[1] + dp(20)
+    background_normal: ''
+    background_color: .78, .63, .78, .85
+    # Texto centralizado
+    halign: 'center'
+
+<TextInput>
+    # Fonte padrão
+    font_name: 'Roboto-BoldItalic'
+    font_size: '18sp'
+    # Altura do TextInput igual a uma linha de texto + 10 (5 de espaço em cima e embaixo)
+    size_hint_y: None
+    height: self.line_height + dp(10)
+    # Sem múltiplas linhas
+    multiline: False
+    # O TAB não entra no texto, ao invés disso, pula pro próximo campo
+    write_tab: False
+    foreground_color: [.33,.19,.34,1]
+<AsyncImage>
+    # Tamanho das imagens
+    size_hint: None, None
+    size: dp(64), dp(64)
+    # Ajuste das imagens
+    allow_stretch: True
+    keep_ratio: False
