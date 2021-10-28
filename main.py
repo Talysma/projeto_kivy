@@ -13,7 +13,7 @@ from telalogin import TelaLogin
 from telacadastro import TelaCadastro
 from telaperfil import TelaPerfil
 from telaeditarperfil import TelaEditarPerfil
-#from telaabrefoto import TelaAbreFoto
+from telaabrefoto import TelaAbreFoto
 
 # Classe principal
 class MainApp(App):
@@ -40,7 +40,7 @@ class MainApp(App):
         # Carrega as outras telas
         sm.add_widget(TelaCadastro(name='cadastro'))
         sm.add_widget(TelaEditarPerfil(name='editarperfil'))
-       # sm.add_widget(TelaAbreFoto(name='abrefoto'))
+        sm.add_widget(TelaAbreFoto(name='abrefoto'))
 
         return sm
 

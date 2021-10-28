@@ -42,13 +42,13 @@ class TelaPerfil(Screen):
             on_error = self.erro,
         )
 
-       # UrlRequest(f"{AppConfig.servidor}/api/foto/{login}",
-            #req_headers = {
-               # 'Authorization': f'Bearer {AppConfig.get_config("token")}'
-           # },
-           # on_success = self.foto_sucesso,
-           # on_error = self.erro,
-       # )
+        UrlRequest(f"{AppConfig.servidor}/api/foto/{login}",
+            req_headers = {
+                'Authorization': f'Bearer {AppConfig.get_config("token")}'
+            },
+            on_success = self.foto_sucesso,
+            on_error = self.erro,
+        )
     
     '''
     Recebe a resposta da requisição do perfil.
@@ -106,8 +106,8 @@ class TelaPerfil(Screen):
 
     Em caso de sucesso, atualiza a imagem.
     '''
-   # def foto_sucesso(self, req, resposta):
-       # if (resposta['status'] == 0):
+    def foto_sucesso(self, req, resposta):
+      if (resposta['status'] == 0):
             # Atualiza a foto na interface
-           # self.img_perfil.source = resposta['url']
-           # self.img_perfil.reload()
+            self.img_perfil.source = resposta['url']
+            self.img_perfil.reload()
