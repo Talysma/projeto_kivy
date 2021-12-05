@@ -1,0 +1,35 @@
+
+#:include telas/widgets_config.kv
+
+# Tela Postar
+################################################################################
+<TelaPostar>:
+    lb_msg: lb_msg
+
+    ScrollView:
+        
+        BoxLayout:
+
+            Label:
+                text: '[b]Nova postagem[/b]'
+                font_size: '32sp'
+            
+            Label:
+                text:'Escreva sua mensagem  !\n'
+
+           
+            TextInput:
+                id: txt_texto
+
+            
+            Button:
+                text: 'Postar'
+                on_press: root.postar(txt_texto.text)
+            
+            Button:
+                text: 'Cancelar'
+                on_press:
+                    root.manager.transition.direction = 'right'
+                    root.manager.current = 'perfil'
+            Label:
+                id:lb_msg

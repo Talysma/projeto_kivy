@@ -1,3 +1,6 @@
+
+
+
 #:include telas/widgets_config.kv
 
 ################################################################################
@@ -6,47 +9,81 @@
 <TelaPerfil>:
     lb_login: lb_login
     lb_nome: lb_nome
-    btn_foto: btn_foto
     img_perfil: img_perfil
+    layout_postagens:layout_postagens
+    layout_botoes:layout_botoes
+
 
     ScrollView:
         
         BoxLayout:
+            
+
+            
+            
 
             GridLayout:
                 cols: 2
                 padding: 0
 
-                AsyncImage:
+                TextInput:
+                    id: txt_busca
+                    size_hint_x:3
+                
+                BotaoImagem:
+                    size_hint: None, None
+                    size: dp(30), dp(30)
+                    source:'img/lupa.png'
+                    on_press:root.carregar_perfil(txt_busca.text)
+
+                   
+
+
+            GridLayout:
+                cols: 2
+                padding: 0
+
+                BotaoImagem:
                     id: img_perfil
                 
                 Label:
                     id: lb_login
                     font_size: '25sp'
 
+
+
+
             Label:
                 id: lb_nome
 
-            GridLayout:
-                cols: 2
-                padding: 0
-                
 
-                Button:
-                    text: 'Editar perfil'
-                    on_press:
-                        root.manager.transition.direction = 'left'
-                        root.manager.current = 'editarperfil'
-                        root.manager.current_screen.txt_nome.text = lb_nome.text
-                
-                Button:
-                    id: btn_foto
-                    text: 'Alterar foto'
-                    on_press:
-                        root.manager.transition.direction = 'left'
-                        root.manager.current = 'abrefoto'
-                        root.manager.current_screen.carregar_pasta()
+            GridLayout:
+
+                id:layout_botoes 
+                cols: 2
+
+
+            Button:
+                text: 'Nova postagem '
+                on_press:
+                    root.manager.transition.direction = 'left'
+                    root.manager.current = 'telapostar'
+
+            Button:
+                text: 'Feed '
+                on_press:
+                    root.manager.transition.direction = 'left'
+                    root.manager.current = 'feed' 
+
+           
 
             Button:
                 text: 'Sair'
                 on_press: root.sair()
+
+
+            BoxLayout:
+                id:layout_postagens
+
+                
+                  

@@ -1,0 +1,45 @@
+
+
+
+#:include telas/widgets_config.kv
+
+################################################################################
+# Tela de Perfil
+################################################################################
+<TelaFeed>:
+    
+    layout_postagens:layout_postagens
+   
+
+    ScrollView:
+        
+        BoxLayout:
+
+
+            Label:
+                text:'Compartilhe com seu amigos o que há de novo!'
+                font_size: '25sp'
+
+
+            GridLayout:
+                cols: 2
+
+
+                Button:
+                    text: 'Feed '
+                    on_press:
+                        root.manager.transition.direction = 'left'
+                        root.manager.current = 'feed'
+                Button:
+                    text: 'Perfil '
+                    on_press:
+                        root.manager.transition.direction = 'left'
+                        root.manager.current = 'perfil'        
+            
+
+            
+
+            BoxLayout:
+                id:layout_postagens
+
+                
