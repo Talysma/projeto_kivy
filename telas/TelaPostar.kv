@@ -1,5 +1,6 @@
 
 #:include telas/widgets_config.kv
+#:include telas/Menu.kv
 
 # Tela Postar
 ################################################################################
@@ -9,13 +10,14 @@
     ScrollView:
         
         BoxLayout:
+            Menu:
 
             Label:
                 text: '[b]Nova postagem[/b]'
                 font_size: '32sp'
+                color:'#ffffff'
+                font_name: 'Arial'
             
-            Label:
-                text:'Escreva sua mensagem  !\n'
 
            
             TextInput:
@@ -25,11 +27,17 @@
             Button:
                 text: 'Postar'
                 on_press: root.postar(txt_texto.text)
+                font_name: 'Arial'
+                font_size: '18sp'
+                color:'#ffffff'
             
-            Button:
-                text: 'Cancelar'
-                on_press:
-                    root.manager.transition.direction = 'right'
-                    root.manager.current = 'perfil'
+            
+
             Label:
                 id:lb_msg
+
+
+            Label: 
+                font_size: '14sp'
+                text: 'Ícones feito por www.freepik.com'
+                halign: 'center'

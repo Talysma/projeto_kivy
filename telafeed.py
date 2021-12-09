@@ -64,8 +64,8 @@ class TelaFeed(Screen):
               
               
             layout_postagem =BoxLayout()
-            #layout_postagem.canvas.add(Color( 255,255,255,0.5 ))
-            #layout_postagem.canvas.add(Rectangle(size=layout_postagem.size , pos=layout_postagem.pos))
+            layout_postagem.canvas.add(Color( 255,255,255,0.5 ))
+            layout_postagem.canvas.add(Rectangle(size=layout_postagem.size , pos=layout_postagem.pos))
 
               
             label_data =Label(
@@ -95,7 +95,7 @@ class TelaFeed(Screen):
             layout_curtidas.add_widget(btn_curtida)
             layout_curtidas.add_widget(label_curtidas)
 
-
+            
 
             foto = AsyncImage(source=f'{AppConfig.servidor}/perfil/avatar/{postagem["autor_login"]}')
 
@@ -110,6 +110,13 @@ class TelaFeed(Screen):
             layout_quadro.add_widget(foto)
             layout_quadro.add_widget(layout_postagem)
             self.layout_postagens.add_widget(layout_quadro)
+
+
+            linha=AsyncImage(source='linha.png')
+            linha.height=4
+            linha.size_hint_x=1
+            
+            self.layout_postagens.add_widget(linha)
 
     def curtir(self,instance):
         UrlRequest(f"{AppConfig.servidor}/api/curtida/{instance.id_postagem}",

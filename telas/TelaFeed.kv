@@ -2,11 +2,15 @@
 
 
 #:include telas/widgets_config.kv
+#:include telas/Menu.kv
+
 
 ################################################################################
 # Tela de Perfil
 ################################################################################
+
 <TelaFeed>:
+
     
     layout_postagens:layout_postagens
    
@@ -14,32 +18,24 @@
     ScrollView:
         
         BoxLayout:
+            Menu:
 
 
             Label:
-                text:'Compartilhe com seu amigos o que há de novo!'
+                text:'Postagens'
                 font_size: '25sp'
-
-
-            GridLayout:
-                cols: 2
-
-
-                Button:
-                    text: 'Feed '
-                    on_press:
-                        root.manager.transition.direction = 'left'
-                        root.manager.current = 'feed'
-                Button:
-                    text: 'Perfil '
-                    on_press:
-                        root.manager.transition.direction = 'left'
-                        root.manager.current = 'perfil'        
-            
-
-            
+                color:'#ffffff'
 
             BoxLayout:
                 id:layout_postagens
-
-                
+                canvas.before:
+                    Color:
+                        rgba:255, 255, 255, 0.5
+                    Rectangle:
+                        size: self.size
+                        pos: self.pos 
+            Label: 
+                font_size: '14sp'
+                text: 'Ícones feito por www.freepik.com'
+                halign: 'center'
+                      

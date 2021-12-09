@@ -13,7 +13,7 @@ from kivy.graphics import Rectangle,Color
 from kivy.uix.boxlayout import BoxLayout
 from kivy.network.urlrequest import UrlRequest
 from kivy.uix.button import Button
-
+from kivy.uix.image import AsyncImage
 
 # Classe AppConfig
 from appconfig import AppConfig
@@ -82,7 +82,7 @@ class TelaPerfil(Screen):
     
         )
         else:
-            btn_editar=Button(text='Editar perfil')
+            btn_editar=Button(text='Editar perfil',color='#ffffff')
             btn_editar.bind(on_press=self.btn_editar_clique)
            # btn_foto=Button(text='Alterar foto')
             #btn_foto.bind(on_press=self.btn_foto_clique)
@@ -175,24 +175,32 @@ class TelaPerfil(Screen):
           for postagem in postagens:
               
               layout_postagem =BoxLayout()
-              #layout_postagem.canvas.add(Color( 255,255,255,0.5 ))
-              #layout_postagem.canvas.add(Rectangle(size=layout_postagem.size , pos=layout_postagem.pos))
+              layout_postagem.canvas.add(Color( 255,255,255,0.5 ))
+              layout_postagem.canvas.add(Rectangle(size=layout_postagem.size , pos=layout_postagem.pos))
               label_data =Label(text=postagem['datahora'], font_size= '14sp')
               label_texto =Label(text=f"{postagem['texto']}\n")
 
 
               layout_postagem.add_widget(label_data)
               layout_postagem.add_widget(label_texto)
+              
               self.layout_postagens.add_widget(layout_postagem)  
+              linha=AsyncImage(source='linha.png')
+              linha.height=4
+              linha.size_hint_x=1
+            
+              self.layout_postagens.add_widget(linha)
 
+
+            
 
     def contato_sucesso(self, req, resposta):
         if resposta['status']==0:
-            btn_desseguir= Button(text='Deixar de seguir')
+            btn_desseguir= Button(text='Deixar de seguir',color='#ffffff')
             btn_desseguir.bind(on_press=self.desseguir)
             self.layout_botoes.add_widget(btn_desseguir)
         else:
-            btn_seguir= Button(text='Seguir')
+            btn_seguir= Button(text='Seguir',color='#ffffff')
             btn_seguir.bind(on_press=self.seguir)
             self.layout_botoes.add_widget(btn_seguir)
 

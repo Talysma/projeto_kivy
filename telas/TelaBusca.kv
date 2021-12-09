@@ -1,0 +1,48 @@
+
+
+#:include telas/widgets_config.kv
+#:include telas/Menu.kv
+
+<TelaBusca>:
+    lb_mesg:lb_msg
+    #layout_postagens:layout_postagens
+    txt_termo:txt_termo
+    #lb_resultado:lb_resultado
+    
+
+
+    ScrollView:
+        
+        BoxLayout:
+            Menu:
+
+            Label:
+                text:'Buscar'
+                font_size: '25sp'
+            
+            TextInput:
+                id: txt_termo
+
+            Button:
+                text: 'Buscar'
+                font_name: 'Arial'
+                font_size: '18sp'
+                color:'#ffffff'
+                on_press: root.buscar(txt_termo.text)    
+
+
+            Label:
+                id: lb_msg    
+
+            Label:
+                id: lb_resultado   
+
+            BoxLayout:
+                id:layout_postagens
+                canvas.before:
+                    Color:
+                        rgba:255, 255, 255, 0.5
+                    Rectangle:
+                        size: self.size
+                        pos: self.pos 
+                

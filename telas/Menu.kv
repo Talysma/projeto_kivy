@@ -1,0 +1,46 @@
+
+#:include telas/widgets_config.kv
+
+<Menu@BoxLayout>:
+    spacing:0
+    padding:0
+   
+
+    GridLayout:
+        spacing:2
+        cols:5
+        padding:0
+   
+
+        
+
+        BotaoImagem:
+            
+            size: dp(24), dp(24)
+            source:'img/home.png'
+            on_press:
+                app.sm.transition.direction = 'right'
+                app.sm.current = 'feed'       
+
+        Widget:
+
+
+        BotaoImagem:
+            size: dp(24), dp(24)
+            source:'img/perfil.png'
+            on_press:
+                app.sm.transition.direction = 'left'
+                app.sm.current = 'perfil'
+        Widget:
+
+
+        BotaoImagem:
+            size: dp(24), dp(24)
+            source:'img/escrever.png'
+            
+            on_press:
+                app.sm.transition.direction = 'left'
+                app.sm.current = 'telapostar'
+
+        
+

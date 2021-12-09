@@ -1,6 +1,9 @@
 ################################################################################
 # Configurações padrões dos widgets
 ################################################################################
+
+
+
 <ScrollView>
     # Rolagem apenas na vertical
     do_scroll_x: False
@@ -35,8 +38,7 @@
 
 <Label>
     # Fonte
-    font_name: 'Roboto-BoldItalic'
-    font_size: '18sp'
+    
     # Altura do Label igual à altura do texto
     size_hint_y: None
     height: self.texture_size[1]
@@ -45,6 +47,15 @@
     halign: 'left'
     # Aceita marcação
     markup: True
+    font_name: 'Arial'
+    font_size: '18sp'
+    color:'#935696'
+   
+
+
+   
+    
+    
 
 <Button>
     # Altura do Button igual à altura do texto + 20 (10 de espaço em cima e embaixo)
@@ -66,7 +77,9 @@
     multiline: False
     # O TAB não entra no texto, ao invés disso, pula pro próximo campo
     write_tab: False
-    foreground_color: [.33,.19,.34,1]
+    cursor_color:'#935696'
+    foreground_color: '#935696'
+   
 <AsyncImage>
     # Tamanho das imagens
     size_hint: None, None

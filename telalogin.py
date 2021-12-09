@@ -10,6 +10,7 @@ from kivy.uix.screenmanager import Screen
 from kivy.properties import ObjectProperty
 from kivy.network.urlrequest import UrlRequest
 
+
 # Classe AppConfig
 from appconfig import AppConfig
 

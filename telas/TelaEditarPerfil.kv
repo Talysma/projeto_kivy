@@ -1,4 +1,6 @@
 #:include telas/widgets_config.kv
+#:include telas/Menu.kv
+
 
 ################################################################################
 # Tela de Editar Perfil
@@ -10,29 +12,36 @@
     ScrollView:
         
         BoxLayout:
+            Menu:
 
             Label:
                 text: '[b]Edite seu perfil[/b]'
                 font_size: '32sp'
+                color:'#ffffff'
+                font_name: 'Arial'
             
             Label:
-                text:'Preencha  apenas os campos que deseja alterar ! .\n'
+                text:'Preencha  os campos que deseja alterar !\n'
+                font_size: '20sp'
+                color:'#ffffff'
+                font_name: 'Arial'
+
 
             Label:
-                text: 'Nome:'
+                text: 'Nome'
 
             TextInput:
                 id: txt_nome
 
             Label:
-                text: 'Senha:'
+                text: 'Senha'
 
             TextInput:
                 id: txt_senha1
                 password: True
 
             Label:
-                text: 'Confirme a senha:'
+                text: 'Confirme a senha'
 
             TextInput:
                 id: txt_senha2
@@ -42,11 +51,15 @@
                 id: lb_msg
             
             Button:
-                text: 'Enviar'
+                text: 'salvar'
+                font_name: 'Arial'
+                font_size: '18sp'
+                color:'#ffffff'
                 on_press: root.enviar(txt_senha1.text, txt_senha2.text, txt_nome.text)
-            
-            Button:
-                text: 'Cancelar'
-                on_press:
-                    root.manager.transition.direction = 'right'
-                    root.manager.current = 'perfil'
+
+
+
+            Label: 
+                font_size: '14sp'
+                text: 'Ícones feito por www.freepik.com'
+                halign: 'center'

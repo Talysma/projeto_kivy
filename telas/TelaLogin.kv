@@ -11,12 +11,19 @@
 
         BoxLayout:
 
-            Label:
-                text: '[b]Olá,seja bem-vindo(a)[/b]\n'
-                font_size: '32sp'
+            AsyncImage:
+                size_hint: None, None
+                size: dp(300), dp(300)
+                source:'img/logo.png'
 
             Label:
                 text: 'Login'
+                font_name: 'Arial'
+                font_size: '18sp'
+                color:'#935696'
+
+              
+
                 
 
             TextInput:
@@ -24,20 +31,30 @@
 
             Label:
                 text: 'Senha'
+                font_name: 'Arial'
+                font_size: '18sp'
+                color:'#935696'
 
             TextInput:
                 id: txt_senha
                 password: True
+                
 
             Label:
                 id: lb_msg
                 
             Button:
                 text: 'Entrar'
+                font_name: 'Arial'
+                font_size: '18sp'
+                color:'#ffffff'
                 on_press: root.entrar(txt_login.text, txt_senha.text)
 
             Button:
                 text: 'Cadastrar'
+                font_name: 'Arial'
+                font_size: '18sp'
+                color:'#ffffff'
                 on_press:
                     root.manager.transition.direction = 'left'
                     root.manager.current = 'cadastro'
